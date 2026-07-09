@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="Zixuan Gong · HomePage">
+    <meta property="og:description" content="Zixuan Gong — Ph.D. student at Gaoling School of Artificial Intelligence, Renmin University of China. Research on the LLM theory.">
+    <meta property="og:url" content="https://zx-gong.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Zixuan Gong">
+    
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Zixuan Gong",
+          "alternateName": [
+            "Zixuan Gong HomePage",
+            "Zixuan Gong Homepage",
+            "Zixuangong Homepage",
+            "ZX Gong"
+          ],
+          "url": "https://zx-gong.github.io/"
+        }
+    </script>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&display=swap" rel="stylesheet">
+
+    <style>
+        
+        :root {/* --- COLOR CONFIGURATION --- */
+            /* CHANGE THIS RGB VALUE to your preferred color */
+            /* Current: Blue (59, 130, 246) */
+            /* Example: Teal (0, 128, 128) | Purple (147, 51, 234) */
+            --main-rgb: 59, 130, 246;
+            --main-skyblue: #61a8c5;
+            --main-blue: #369ddd;
+            --main-darkblue: #2170b5;
+        }
+        
+        /* Custom Text Color Class */
+        .text-primary {
+            color: var(--main-primary);
+            transition: opacity 0.2s;
+        }
+        .text-primary:hover {
+            opacity: 0.75; /* Fades slightly on hover */
+        }
+        .text-author {
+            color: var(--main-blue);
+            transition: opacity 0.2s;
+        }
+        .text-author:hover {
+            opacity: 0.75; /* Fades slightly on hover */
+        }
+        .text-link{
+          color: var(--main-darkblue);
+          transition: opacity 0.2s;
+        }
+        .text-link:hover {
+          opacity: 0.75; /* Fades slightly on hover */
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        /* Sidebar Link Active State */
+        .nav-link.active {
+            background-color: #e2e8f0; /* slate-200 */
+            color: #1a202c; /* gray-900 */
+            font-weight: 700;
+        }
+        
+        /* Offset for scroll anchor so headers aren't hidden behind margins */
+        section {
+            scroll-margin-top: 2rem;
+        }
+
+        .paper-actions {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .paper-actions > a,
+        .paper-actions > button {
+            order: 1;
+        }
+
+        .paper-action-btn {
+            align-items: center;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-sizing: border-box;
+            color: #8a1230;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            gap: 6px;
+            justify-content: center;
+            line-height: 1;
+            padding: 0;
+            text-decoration: none;
+            transition: color 0.18s ease, opacity 0.18s ease;
+            white-space: nowrap;
+        }
+
+        .paper-action-btn:hover {
+            color: #8a1230;
+            opacity: 0.82;
+        }
+
+        .bib-panel {
+            background: #f3f4f6;
+            border-radius: 10px;
+            color: #111827;
+            flex-basis: 100%;
+            margin: 0.55rem 0 0;
+            order: 2;
+            overflow-x: auto;
+            padding: 1rem 1rem 0.95rem;
+            position: relative;
+            width: 100%;
+        }
+
+        .bib-code {
+            color: #111827;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.7rem;
+            line-height: 1.5;
+            margin: 0;
+            overflow-x: auto;
+            padding-top: 0.45rem;
+            white-space: pre;
+        }
+
+        .bib-copy-btn {
+            align-items: center;
+            background: transparent;
+            border: none;
+            border-radius: 9999px;
+            color: #9ca3af;
+            cursor: pointer;
+            display: inline-flex;
+            justify-content: center;
+            height: 1.55rem;
+            width: 1.55rem;
+            opacity: 0.75;
+            padding: 0;
+            position: absolute;
+            right: 0.8rem;
+            top: 0.75rem;
+            transition: color 0.18s ease, opacity 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+        }
+
+        .bib-copy-btn:hover {
+            background: rgba(107, 114, 128, 0.08);
+            color: #6b7280;
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+
+        .bib-copy-btn:focus-visible {
+            outline: none;
+            background: rgba(107, 114, 128, 0.10);
+            color: #6b7280;
+            opacity: 1;
+        }
+
+        .bib-panel[hidden] {
+            display: none;
+        }
+
+        .interest-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.8rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .interest-card {
+            background: #ffffff;
+            border-left: 4px solid #3b82f6;
+            border-radius: 12px;
+            padding: 0.85rem 0.95rem;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .interest-card:hover {
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+            transform: translateY(-2px);
+        }
+
+        .interest-card h3 {
+            color: #111827;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.45rem;
+        }
+
+        .interest-card p {
+            color: #4b5563;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-bottom: 0.7rem;
+            text-align: left;
+        }
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+        }
+
+        .interest-tags span {
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            border-radius: 999px;
+            color: #1d4ed8;
+            font-size: 0.74rem;
+            line-height: 1.3;
+            padding: 0.22rem 0.5rem;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 900px) {
+            .interest-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Google Analytics -->
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript">
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-1592615-30', 'auto', 'webwwwall');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 flex flex-col md:flex-row min-h-screen">
+
+    <!-- LEFT SIDEBAR (Sticky) -->
+    <!-- On mobile, this is static. On desktop (md:), it becomes sticky to the top of the viewport. -->
+    <aside class="w-full md:w-80 bg-white shadow-lg flex-shrink-0 flex flex-col z-20 md:h-screen md:sticky md:top-0">
+        <div class="p-8 flex flex-col items-center text-center overflow-y-auto">
+            
+            <!-- Profile Image Container -->
+            <div class="relative w-40 h-40 mb-6 rounded-full overflow-hidden border-4 border-gray-100 shadow-sm">
+              <!-- Added ID="profile-pic" to target this with JavaScript -->
+              <img id="profile-pic" 
+                   src="pics/zxgong_photo.jpg" 
+                   alt="Zixuan Gong" 
+                   class="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
+                   onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Bingbin+Liu&size=256&background=random';">
+          </div>
+
+            <!-- Name & Title -->
+            <h1 class="text-2xl font-bold text-gray-900 mb-1">Zixuan Gong</h1>
+            <p class="text-sm text-gray-600 mb-4">Ph.D. Student<br>Renmin University of China</p>
+
+            <!-- Links -->
+            <div class="flex flex-wrap justify-center gap-3 text-sm mb-6">
+                <!-- <a href="files/zxgong_Resume.pdf" target="_blank" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-700 transition">
+                    <i class="fas fa-file-alt mr-1"></i> CV
+                </a> -->
+                <a href="https://scholar.google.com/citations?hl=en&user=ppcylgoAAAAJ" target="_blank" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-700 transition">
+                    <i class="fas fa-graduation-cap mr-1"></i> Google Scholar
+                </a>
+            </div>
+            
+            <div class="text-xs text-gray-500 mb-6">
+                <i class="fas fa-envelope mr-1"></i> zxgong [at] ruc [dot] edu [dot] cn
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="w-full">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#about" class="nav-link active w-full text-left px-6 py-3 rounded-lg hover:bg-gray-50 transition flex items-center text-gray-600">
+                            <i class="fas fa-paw w-6 text-center mr-3 text-gray-400"></i> About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#research" class="nav-link w-full text-left px-6 py-3 rounded-lg hover:bg-gray-50 transition flex items-center text-gray-600">
+                            <i class="fas fa-book w-6 text-center mr-3 text-gray-400"></i> Research
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#publications" class="nav-link w-full text-left px-6 py-3 rounded-lg hover:bg-gray-50 transition flex items-center text-gray-600">
+                            <i class="fas fa-file-lines w-6 text-center mr-3 text-gray-400"></i> Publications
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#activities" class="nav-link w-full text-left px-6 py-3 rounded-lg hover:bg-gray-50 transition flex items-center text-gray-600">
+                            <i class="fas fa-commenting w-6 text-center mr-3 text-gray-400"></i> Activities
+                        </a>
+                    </li> -->
+                    <li>
+                        <a href="#misc" class="nav-link w-full text-left px-6 py-3 rounded-lg hover:bg-gray-50 transition flex items-center text-gray-600">
+                            <i class="fas fa-star-half-alt w-6 text-center mr-3 text-gray-400"></i> Beyond
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT -->
+    <main class="flex-1 p-6 md:p-12 md:pl-16 max-w-5xl">
+        
+        <!-- ABOUT SECTION -->
+        <section id="about" class="mb-20 pt-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">About Me</h2>
+            
+            <div class="prose max-w-none text-gray-700 space-y-4">
+                <p style="text-align: justify;">
+                    Hello! I'm Zixuan Gong. I am a third-year Ph.D. student at the <a href="http://ai.ruc.edu.cn/" target="_blank" class="hover:underline text-link">Gaoling School of Artificial Intelligence (GSAI)</a>, <a href="http://ruc.edu.cn/" target="_blank" class="hover:underline text-link">Renmin University of China</a>, advised by <a href="https://gsai.ruc.edu.cn/liuyong" target="_blank" class="hover:underline text-link">Prof. Yong Liu</a> and <a href="https://www.tengjiaye.com/" target="_blank" class="hover:underline text-link">Prof. Jiaye Teng</a>.
+                    My research broadly focuses on LLM theory, driven at its core by a simple curiosity: how do foundation models actually learn, and why do they work so well? 
+                    My long-term goal is to uncover the fundamental principles governing their behavior. By bridging theory and practice, I hope to translate these insights into the design and development of more principled architectures, training paradigms, and optimization algorithms.
+                </p>
+                
+            </div>
+
+        </section>
+
+
+
+
+        <section id="research" class="mb-20 pt-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2 flex items-center gap-2">
+                Research
+            </h2>
+
+            <div class="prose max-w-none text-gray-700 space-y-4">
+                <!-- <p style="text-align: justify;">
+                    Currently, my core research focus is LLM Theory, complemented by ongoing explorations in the following areas:
+                </p> -->
+
+                <div class="interest-grid">
+
+                    <div class="interest-card">
+                        <h3>LLM Theory</h3>
+                        <p>
+                            Understanding the architecture, optimization, and generalization principles behind large language models.
+                        </p>
+                        <div class="interest-tags">
+                            <span><strong>Looped Transformers</strong></span>
+                            <span>MoE</span>
+                            <span><strong>Training Dynamics</strong></span>
+                            <span><strong>LLM Optimizer</strong></span>
+                            <span>In-Context Learning</span>
+                            <span>Scaling Law</span>
+                        </div>
+                    </div>
+
+                    <div class="interest-card">
+                        <h3>LLM Safety</h3>
+                        <p>
+                            Studying intrinsic risks and emergent behaviors that affect the reliability of LLMs.
+                        </p>
+                        <div class="interest-tags">
+                            <span>Intrinsic Bias</span>
+                            <span>Self-Awareness</span>
+                        </div>
+                    </div>
+
+                    <div class="interest-card">
+                        <h3>Machine Learning Theory</h3>
+                        <p>
+                            Exploring the theoretical foundations of machine learning.
+                        </p>
+                        <div class="interest-tags">
+                            <span>Generalization</span>
+                            <span>Federated Learning</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <p style="text-align: justify;">
+                    Currently, I am interested in the design and development of next-generation optimizers. 
+                    I am exploring optimization algorithms and paradigms such as Muon and the muP principles, with a clear and simple goal—making large-scale training fundamentally more efficient, stable, and scalable.
+                </p>
+            </div>
+        </section>
+
+
+
+
+        <section id="publications" class="mb-20 pt-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2 flex items-center gap-2">
+                Publications
+            </h2>
+        
+            <div class="space-y-4">
+
+
+                <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-[0_3px_10px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_6px_14px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    <div class="relative w-full sm:w-[34%] sm:self-start bg-gray-50 p-3 sm:p-4 flex items-center justify-center">
+                        <span class="absolute top-3 left-3 bg-[#f25571] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-sm z-10 tracking-wider">
+                            Preprint (2025)
+                        </span>
+                        <img src="pics/loop.png" alt="loop" class="w-full h-auto object-contain rounded-md border border-gray-200 shadow-sm" onerror="this.style.display='none'">
+                    </div>
+                    
+                    <div class="w-full sm:w-[66%] p-4 flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-[#122340] mb-2 leading-snug">
+                            What Makes Looped Transformers Perform Better Than Non-Recursive Ones                        
+                        </h3>
+                        <p class="text-gray-700 text-sm mb-1">
+                            <strong><u>Zixuan Gong</u></strong>, Yong Liu, Jiaye Teng
+                        </p>
+                        <p class="text-gray-600 italic text-xs mb-4">
+                            Preprint 
+                        </p>
+                        
+                        <div class="paper-actions">
+                            <button type="button" class="paper-action-btn bib-toggle" aria-expanded="false">BIB</button>
+                            <div class="bib-panel" hidden>
+                                <button type="button" class="bib-copy-btn" aria-label="Copy BibTeX" title="Copy BibTeX"><i class="far fa-copy" aria-hidden="true"></i></button>
+                                <pre class="bib-code">@article{gong2025makes,
+  title={What Makes Looped Transformers Perform Better Than Non-Recursive Ones},
+  author={Gong, Zixuan and Liu, Yong and Teng, Jiaye},
+  journal={arXiv preprint arXiv:2510.10089},
+  year={2025}
+}</pre>
+                            </div>
+                            <a href="https://arxiv.org/abs/2510.10089" target="_blank" class="paper-action-btn">
+                                <i class="fas fa-book-open"></i> Paper
+                            </a>
+                        </div>
+
+                        <div class="flex gap-3 mt-auto"></div>
+                    </div>
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-[0_3px_10px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_6px_14px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    <div class="relative w-full sm:w-[34%] sm:self-start bg-gray-50 p-3 sm:p-4 flex items-center justify-center">
+                        <span class="absolute top-3 left-3 bg-[#f25571] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-sm z-10 tracking-wider">
+                            Preprint (2025)
+                        </span>
+                        <img src="pics/opt.png" alt="optimization" class="w-full h-auto object-contain rounded-md border border-gray-200 shadow-sm" onerror="this.style.display='none'">
+                    </div>
+                    
+                    <div class="w-full sm:w-[66%] p-4 flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-[#122340] mb-2 leading-snug">
+                            Disentangling Feature Structure: A Mathematically Provable Two-Stage Training Dynamics in Transformers
+                        </h3>
+                        <p class="text-gray-700 text-sm mb-1">
+                            <strong><u>Zixuan Gong</u></strong>, Shijia Li, Yong Liu, Jiaye Teng
+                        </p>
+                        <p class="text-gray-600 italic text-xs mb-4">
+                            Preprint
+                        </p>
+                        
+                        <div class="paper-actions">
+                            <button type="button" class="paper-action-btn bib-toggle" aria-expanded="false">BIB</button>
+                            <div class="bib-panel" hidden>
+                                <button type="button" class="bib-copy-btn" aria-label="Copy BibTeX" title="Copy BibTeX"><i class="far fa-copy" aria-hidden="true"></i></button>
+                                <pre class="bib-code">@article{gong2025disentangling,
+  title={Disentangling feature structure: A mathematically provable two-stage training dynamics in transformers},
+  author={Gong, Zixuan and Li, Shijia and Liu, Yong and Teng, Jiaye},
+  journal={arXiv preprint arXiv:2502.20681},
+  year={2025}
+}</pre>
+                            </div>
+                            <a href="https://arxiv.org/abs/2502.20681" target="_blank" class="paper-action-btn">
+                                <i class="fas fa-book-open"></i> Paper
+                            </a>
+                        </div>
+
+                        <div class="flex gap-3 mt-auto"></div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-[0_3px_10px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_6px_14px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    <div class="relative w-full sm:w-[34%] sm:self-start bg-gray-50 p-3 sm:p-4 flex items-center justify-center">
+                        <span class="absolute top-3 left-3 bg-[#f25571] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-sm z-10 tracking-wider">
+                            ICLR 2025
+                        </span>
+                        <img src="pics/AR-NTP.png" alt="AR-NTP" class="w-full h-auto object-contain rounded-md border border-gray-200 shadow-sm" onerror="this.style.display='none'">
+                    </div>
+                    
+                    <div class="w-full sm:w-[66%] p-4 flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-[#122340] mb-2 leading-snug">
+                            Towards Auto-Regressive Next-Token Prediction: In-Context Learning Emerges from Generalization
+                        </h3>
+                        <p class="text-gray-700 text-sm mb-1">
+                            <strong><u>Zixuan Gong</u><sup>*</sup></strong>, Xiaolin Hu<sup>*</sup>, Huayi Tang, Yong Liu
+                        </p>
+                        <p class="text-gray-500 text-xs mb-2">
+                            * Equal contribution
+                        </p>
+                        
+                        <p class="text-gray-600 italic text-xs mb-4">
+                            The 13th International Conference on Learning Representations (ICLR 2025)
+                        </p>
+                        
+                        <div class="paper-actions">
+                            <button type="button" class="paper-action-btn bib-toggle" aria-expanded="false">BIB</button>
+                            <div class="bib-panel" hidden>
+                                <button type="button" class="bib-copy-btn" aria-label="Copy BibTeX" title="Copy BibTeX"><i class="far fa-copy" aria-hidden="true"></i></button>
+                                <pre class="bib-code">@inproceedings{
+  gong2025towards,
+  title={Towards Auto-Regressive Next-Token Prediction: In-context Learning Emerges from Generalization},
+  author={Zixuan Gong and Xiaolin Hu and Huayi Tang and Yong Liu},
+  booktitle={The Thirteenth International Conference on Learning Representations},
+  year={2025}
+}</pre>
+                            </div>
+                            <a href="https://arxiv.org/abs/2502.17024" target="_blank" class="paper-action-btn">
+                                <i class="fas fa-book-open"></i> Paper
+                            </a>
+                        </div>
+
+                        <div class="flex gap-3 mt-auto"></div>
+                    </div>
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-[0_3px_10px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_6px_14px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    <div class="relative w-full sm:w-[34%] sm:self-start bg-gray-50 p-3 sm:p-4 flex items-center justify-center">
+                        <span class="absolute top-3 left-3 bg-[#f25571] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-sm z-10 tracking-wider">
+                            AAAI 2025 (Oral)
+                        </span>
+                        <img src="pics/zero-AAAI.png" alt="AAAI" class="w-full h-auto object-contain rounded-md border border-gray-200 shadow-sm" onerror="this.style.display='none'">
+                    </div>
+                    
+                    <div class="w-full sm:w-[66%] p-4 flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-[#122340] mb-2 leading-snug">
+                            Stability and Generalization of Zeroth-Order Decentralized Stochastic Gradient Descent with Changing Topology
+                        </h3>
+                        <p class="text-gray-700 text-sm mb-1">
+                            Xiaolin Hu<sup>*</sup>, <strong><u>Zixuan Gong</u><sup>*</sup></strong>, Gengze Xu, Wei Liu, Jian Luan, Bin Wang, Yong Liu
+                        </p>
+                        <p class="text-gray-500 text-xs mb-2">
+                            * Equal contribution
+                        </p>
+                        <p class="text-gray-600 italic text-xs mb-4">
+                            The 39th Annual AAAI Conference on Artificial Intelligence (AAAI 2025)
+                        </p>
+                        
+                        <div class="paper-actions">
+                            <button type="button" class="paper-action-btn bib-toggle" aria-expanded="false">BIB</button>
+                            <div class="bib-panel" hidden>
+                                <button type="button" class="bib-copy-btn" aria-label="Copy BibTeX" title="Copy BibTeX"><i class="far fa-copy" aria-hidden="true"></i></button>
+                                <pre class="bib-code">@inproceedings{hu2025stability,
+  title={Stability and generalization of zeroth-order decentralized stochastic gradient descent with changing topology},
+  author={Hu, Xiaolin and Gong, Zixuan and Xu, Gengze and Liu, Wei and Luan, Jian and Wang, Bin and Liu, Yong},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={16},
+  pages={17342--17350},
+  year={2025}
+}</pre>
+                            </div>
+                            <a href="https://ojs.aaai.org/index.php/AAAI/article/view/33906" target="_blank" class="paper-action-btn">
+                                <i class="fas fa-book-open"></i> Paper
+                            </a>
+                        </div>
+
+                        <div class="flex gap-3 mt-auto"></div>
+                    </div>
+                </div>
+                
+
+                <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-[0_3px_10px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_6px_14px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    <div class="relative w-full sm:w-[34%] sm:self-start bg-gray-50 p-3 sm:p-4 flex items-center justify-center">
+                        <span class="absolute top-3 left-3 bg-[#f25571] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-sm z-10 tracking-wider">
+                            Preprint (2025)
+                        </span>
+                        <img src="pics/survey.png" alt="survey" class="w-full h-auto object-contain rounded-md border border-gray-200 shadow-sm" onerror="this.style.display='none'">
+                    </div>
+                    
+                    <div class="w-full sm:w-[66%] p-4 flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-[#122340] mb-2 leading-snug">
+                            Beyond the Black Box: A Survey on the Theory and Mechanism of Large Language Models  
+                        </h3>
+                        <p class="text-gray-700 text-sm mb-1">
+                            Zeyu Gan, Ruifeng Ren, Wei Yao, Xiaolin Hu, Gengze Xu, Chen Qian, Huayi Tang, <strong><u>Zixuan Gong</u></strong>, Xinhao Yao, Pengwei Tang, Zhenxing Dou, Yong Liu
+                        </p>
+
+                        <p class="text-gray-600 italic text-xs mb-4">
+                            Preprint
+                        </p>
+                        
+                        <div class="paper-actions">
+                            <button type="button" class="paper-action-btn bib-toggle" aria-expanded="false">BIB</button>
+                            <div class="bib-panel" hidden>
+                                <button type="button" class="bib-copy-btn" aria-label="Copy BibTeX" title="Copy BibTeX"><i class="far fa-copy" aria-hidden="true"></i></button>
+                                <pre class="bib-code">@article{gan2026beyond,
+  title={Beyond the Black Box: Theory and Mechanism of Large Language Models},
+  author={Gan, Zeyu and Ren, Ruifeng and Yao, Wei and Hu, Xiaolin and Xu, Gengze and Qian, Chen and Tang, Huayi and Gong, Zixuan and Yao, Xinhao and Tang, Pengwei and others},
+  journal={arXiv preprint arXiv:2601.02907},
+  year={2026}
+}</pre>
+                            </div>
+                            <a href="https://arxiv.org/abs/2601.02907" target="_blank" class="paper-action-btn">
+                                <i class="fas fa-book-open"></i> Paper
+                            </a>
+                        </div>
+
+                        <div class="flex gap-3 mt-auto"></div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-[0_3px_10px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_6px_14px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    <div class="relative w-full sm:w-[34%] sm:self-start bg-gray-50 p-3 sm:p-4 flex items-center justify-center">
+                        <span class="absolute top-3 left-3 bg-[#f25571] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-sm z-10 tracking-wider">
+                            Preprint (2026)
+                        </span>
+                        <img src="pics/scaling.png" alt="scaling" class="w-full h-auto object-contain rounded-md border border-gray-200 shadow-sm" onerror="this.style.display='none'">
+                    </div>
+                    
+                    <div class="w-full sm:w-[66%] p-4 flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-[#122340] mb-2 leading-snug">
+                            Effective Frontiers: A Unification of Neural Scaling Laws               
+                        </h3>
+                        <p class="text-gray-700 text-sm mb-1">
+                            Jiaxuan Zou<sup>*</sup>, <strong><u>Zixuan Gong</u><sup>*</sup></strong>, Ye Su, Huayi Tang, Yong Liu
+                        </p>
+                        <p class="text-gray-500 text-xs mb-2">
+                            * Equal contribution
+                        </p>
+
+                        <p class="text-gray-600 italic text-xs mb-4">
+                            Preprint
+                        </p>
+                        
+                        <div class="paper-actions">
+                            <button type="button" class="paper-action-btn bib-toggle" aria-expanded="false">BIB</button>
+                            <div class="bib-panel" hidden>
+                                <button type="button" class="bib-copy-btn" aria-label="Copy BibTeX" title="Copy BibTeX"><i class="far fa-copy" aria-hidden="true"></i></button>
+                                <pre class="bib-code">@article{zou2026effective,
+  title={Effective Frontiers: A Unification of Neural Scaling Laws},
+  author={Zou, Jiaxuan and Gong, Zixuan and Su, Ye and Tang, Huayi and Liu, Yong},
+  journal={arXiv preprint arXiv:2602.02593},
+  year={2026}
+}</pre>
+                            </div>
+                            <a href="https://arxiv.org/abs/2602.02593" target="_blank" class="paper-action-btn">
+                                <i class="fas fa-book-open"></i> Paper
+                            </a>
+                        </div>
+
+                        <div class="flex gap-3 mt-auto"></div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row bg-white rounded-xl shadow-[0_3px_10px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_6px_14px_rgba(0,0,0,0.1)] transition-all duration-300">
+                    <div class="relative w-full sm:w-[34%] sm:self-start bg-gray-50 p-3 sm:p-4 flex items-center justify-center">
+                        <span class="absolute top-3 left-3 bg-[#f25571] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-sm z-10 tracking-wider">
+                            Preprint (2026)
+                        </span>
+                        <img src="pics/moe.png" alt="moe" class="w-full h-auto object-contain rounded-md border border-gray-200 shadow-sm" onerror="this.style.display='none'">
+                    </div>
+                    
+                    <div class="w-full sm:w-[66%] p-4 flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-[#122340] mb-2 leading-snug">
+                            Sparsity is Combinatorial Depth: Quantifying MoE Expressivity via Tropical Geometry       
+                        </h3>
+                        <p class="text-gray-700 text-sm mb-1">
+                            Ye Su, Huayi Tang, <strong><u>Zixuan Gong</u></strong>, Yong Liu
+                        </p>
+
+                        <p class="text-gray-600 italic text-xs mb-4">
+                            Preprint
+                        </p>
+                        
+                        <div class="paper-actions">
+                            <button type="button" class="paper-action-btn bib-toggle" aria-expanded="false">BIB</button>
+                            <div class="bib-panel" hidden>
+                                <button type="button" class="bib-copy-btn" aria-label="Copy BibTeX" title="Copy BibTeX"><i class="far fa-copy" aria-hidden="true"></i></button>
+                                <pre class="bib-code">@article{su2026sparsity,
+  title={Sparsity is Combinatorial Depth: Quantifying MoE Expressivity via Tropical Geometry},
+  author={Su, Ye and Tang, Huayi and Gong, Zixuan and Liu, Yong},
+  journal={arXiv preprint arXiv:2602.03204},
+  year={2026}
+}</pre>
+                            </div>
+                            <a href="https://arxiv.org/abs/2602.03204" target="_blank" class="paper-action-btn">
+                                <i class="fas fa-book-open"></i> Paper
+                            </a>
+                        </div>
+
+                        <div class="flex gap-3 mt-auto"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Misc SECTION -->
+
+        <section id="misc" class="mb-40 pt-4">
+              <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">Beyond</h2>
+              <div class="text-gray-700 text-base">
+                    <li>                        
+                        Keep exploring, discovering, and thinking!
+                    </li>
+
+                    <li>                        
+                        Communication creates ideas! Feel free to reach out via email.
+                    </li>
+
+                  </ul>
+
+              </div>
+          </section>
+
+    </main>
+
+
+    <script>
+      // --- RANDOM PHOTO LOGIC ---
+      // Add your file paths here!
+      const profilePhotos = [
+          'pics/zxgong_photo.jpg'
+      ];
+
+      function getWeightedRandomItem(items, probabilities) {
+        let r = Math.random();
+        
+        for (let i = 0; i < items.length; i++) {
+          if (r < probabilities[i]) {
+            return items[i];
+          }
+          r -= probabilities[i];
+        }
+        
+        // Fallback in case of floating point rounding errors
+        return items[items.length - 1]; 
+      }
+
+      if ('scrollRestoration' in history) {
+          history.scrollRestoration = 'manual';
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+          const isInitialTopLoad = !window.location.hash;
+
+          document.querySelectorAll('.bib-toggle').forEach((button) => {
+              button.addEventListener('click', () => {
+                  const panel = button.nextElementSibling;
+                  if (!panel || !panel.classList.contains('bib-panel')) return;
+
+                  const isOpen = !panel.hidden;
+                  panel.hidden = isOpen;
+                  button.setAttribute('aria-expanded', String(!isOpen));
+              });
+          });
+
+          document.querySelectorAll('.bib-copy-btn').forEach((copyBtn) => {
+              copyBtn.addEventListener('click', async () => {
+                  const panel = copyBtn.closest('.bib-panel');
+                  const code = panel ? panel.querySelector('.bib-code') : null;
+                  if (!code) return;
+
+                  const textToCopy = code.textContent;
+                  try {
+                      await navigator.clipboard.writeText(textToCopy);
+                      const oldHtml = copyBtn.innerHTML;
+                      copyBtn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
+                      setTimeout(() => {
+                          copyBtn.innerHTML = oldHtml;
+                      }, 1200);
+                  } catch (err) {
+                      const selection = window.getSelection();
+                      const range = document.createRange();
+                      range.selectNodeContents(code);
+                      selection.removeAllRanges();
+                      selection.addRange(range);
+                  }
+              });
+          });
+
+          // Pick a random photo
+          // const randomPhoto = profilePhotos[Math.floor(Math.random() * profilePhotos.length)];
+          // const imgElement = document.getElementById('profile-pic');
+
+          // Sample with given probabilities
+          const probabilities = [1.0];
+          const randomPhoto = getWeightedRandomItem(profilePhotos, probabilities);
+          const imgElement = document.getElementById('profile-pic');
+          
+          if (imgElement) {
+              imgElement.src = randomPhoto;
+          }
+
+          // --- SCROLL SPY LOGIC ---
+          const sections = document.querySelectorAll('section');
+          const navLinks = document.querySelectorAll('.nav-link');
+          let scrollSpyEnabled = !isInitialTopLoad;
+
+          function setActiveNav(id) {
+              navLinks.forEach(link => {
+                  link.classList.remove('active');
+                  link.classList.remove('text-gray-900');
+                  link.classList.add('text-gray-600');
+              });
+
+              const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+              if (activeLink) {
+                  activeLink.classList.add('active');
+                  activeLink.classList.remove('text-gray-600');
+                  activeLink.classList.add('text-gray-900');
+              }
+          }
+
+          navLinks.forEach(link => {
+              link.addEventListener('click', () => {
+                  scrollSpyEnabled = true;
+                  const targetId = link.getAttribute('href').replace('#', '');
+                  setActiveNav(targetId);
+              });
+          });
+
+          if (isInitialTopLoad) {
+              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+              setActiveNav('about');
+
+              ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(eventName => {
+                  window.addEventListener(eventName, () => {
+                      scrollSpyEnabled = true;
+                  }, { once: true, passive: true });
+              });
+          }
+          
+          const observerOptions = {
+              root: null,
+              rootMargin: '-20% 0px -60% 0px', 
+              threshold: 0
+          };
+
+          const observer = new IntersectionObserver((entries) => {
+              if (!scrollSpyEnabled) return;
+
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      setActiveNav(entry.target.getAttribute('id'));
+                  }
+              });
+          }, observerOptions);
+
+          sections.forEach(section => {
+              observer.observe(section);
+          });
+      });
+  </script>
+
+</body>
+</html>
